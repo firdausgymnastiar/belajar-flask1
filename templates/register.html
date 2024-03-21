@@ -35,11 +35,19 @@
             <input type="email" class="form-control" id="formGroupExampleInput6">
         </div>
 
-        <video src="..." class="object-fit-fill" width="640" height="480" autoplay></video>
+        <!-- <video src="..." class="object-fit-fill" width="640" height="480" autoplay></video>
         <button type="button" class="btn btn-primary btn-sm d-grid gap-2 d-md-block" onclick="capture()">Ambil
             Foto</button>
         <br>
         <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+        <br> -->
+
+        <div>
+            <img src="{{ url_for('video') }}" width="50%" />
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary btn-sm d-grid gap-2 d-md-block" onclick="capture()">Ambil
+            Gambar</button>
         <br>
 
         <div class="d-grid gap-2 d-md-block">
