@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="card text-center">
+    <div class="card-header text-bg-danger h3">
+        <strong>
+            SISTEM PRESENSI MANDIRI
+        </strong>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Selamat Datang!</h5>
+        <p class="card-text">Pilih tindakan anda:</p>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a href="{{ url_for('register') }}" class="btn btn-success">REGISTER WAJAH</a>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">MASUK KELAS</a>
+            <a href="{{ url_for('index') }}" class="btn btn-info">LIHAT TABEL KEHADIRAN</a>
+            <a href="{{ url_for('generate') }}" class="btn btn-warning">GENERATE TOKEN</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
