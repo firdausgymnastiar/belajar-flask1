@@ -1,8 +1,16 @@
-from flask import Flask, render_template,Response
+from flask import Flask, render_template, Response, request, jsonify
+# from flask_wtf import FlaskForm
+# from wtforms import StringField, 
 import cv2
+import os
+import datetime
+# import face_recognition
+
 
 app = Flask(__name__)
 camera=cv2.VideoCapture(0)
+
+registered_data = {}
 
 def gen_frames():  
     while True:
@@ -37,6 +45,20 @@ def index():
 @app.route('/register')
 def register():
     return render_template("register.html")
+
+@app.route('/register2', methods=['POST'])
+def register2():
+    nim = request.form.get('nim')
+    photo = request.files['photo']
+    uploads_folder = os.path.join(os.getcwd(), 'static', 'uploads')
+    if not os.path.exists(uploads_folder):
+        os.makedirs(uploads_folder)
+    photo.save(os.path.join(uploads_folder, f'{datetime.date.today()}_{nim}.jpg'))
+
+    registered_data[nim] = f'{datetime.date.today()}_{nim}.jpg'
+
+    response = {'success': True, 'nim': nim}
+    return jsonify(response)
 
 @app.route('/generate')
 def generate():

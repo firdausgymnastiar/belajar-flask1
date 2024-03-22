@@ -11,52 +11,25 @@
         <p class="card-text">Isi Form Berikut:</p>
 
         <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">NIM:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput">
+            <label for="nim" class="form-label">NIM:</label>
+            <input type="text" class="form-control" id="nim" required>
         </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Nama Panggilan:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2">
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput3" class="form-label">Nama Lengkap:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput3">
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput4" class="form-label">Program Studi:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput4">
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput5" class="form-label">Fakultas:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput5">
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput6" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="formGroupExampleInput6">
-        </div>
-
-        <!-- <video src="..." class="object-fit-fill" width="640" height="480" autoplay></video>
-        <button type="button" class="btn btn-primary btn-sm d-grid gap-2 d-md-block" onclick="capture()">Ambil
-            Foto</button>
         <br>
-        <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
-        <br> -->
-
-        <div>
-            <img src="{{ url_for('video') }}" width="50%" />
-        </div>
+        <video id="video" width="680" height="480" autoplay></video>
         <br>
         <button type="button" class="btn btn-primary btn-sm d-grid gap-2 d-md-block" onclick="capture()">Ambil
             Gambar</button>
         <br>
+        <canvas id="canvas" width="680" height="480" style="display: none;"></canvas>
+        <br>
 
         <div class="d-grid gap-2 d-md-block">
             <a href="#">
-                <button class="btn btn-success" type="submit">Submit</button>
+                <button class="btn btn-success" type="submit" onclick="register()">Submit</button>
             </a>
             <a href="{{ url_for('index') }}" class="btn btn-danger">Back To Home</a>
         </div>
     </div>
 </div>
-
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 {% endblock %}
